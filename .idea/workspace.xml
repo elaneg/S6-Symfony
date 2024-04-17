@@ -5,15 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94e722dc-ed23-4548-87a9-ab74eac32107" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entity/PdfTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entity/SubscriptionTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entity/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/micro_service/composer.json" />
+    </option>
   </component>
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
@@ -147,6 +152,42 @@
       <path value="$PROJECT_DIR$/vendor/symfony/config" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
       <path value="$PROJECT_DIR$/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/composer" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/micro_service/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/phpmd/phpmd" />
+      <path value="$PROJECT_DIR$/vendor/pdepend/pdepend" />
     </include_path>
   </component>
   <component name="ProjectId" id="2fDfYq91CNWrLeFtkdjAIhQwU00" />
@@ -158,12 +199,15 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
+    "git-widget-placeholder": "feature/testsUnitaires",
     "last_opened_file_path": "C:/laragon/www/S6-Symfony",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -182,10 +226,15 @@
       <option name="presentableId" value="Default" />
       <updated>1713340619263</updated>
       <workItem from="1713340620274" duration="6357000" />
+      <workItem from="1713349535919" duration="1742000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
