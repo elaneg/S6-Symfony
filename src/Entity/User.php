@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -31,19 +32,14 @@ class User
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $role = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(inversedBy: 'subscriber')]
     private ?Subscription $subscription_id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $subscription_end_at = null;
-
-    #[ORM\OneToMany(cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Pdf $created_at = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $updated_at = null;
+    /**
+     * @var Collection<int, Pdf>
+     */
+    #[ORM\OneToMany(targetEntity: Pdf::class, mappedBy: 'owner')]
+    private Collection $pdf;
 
     public function getId(): ?int
     {
@@ -127,40 +123,32 @@ class User
         return $this;
     }
 
-    public function getSubscriptionEndAt(): ?\DateTimeInterface
+    /**
+     * @return Collection<int, Pdf>
+     */
+    public function getPdf(): Collection
     {
-        return $this->subscription_end_at;
+        return $this->pdf;
     }
 
-    public function setSubscriptionEndAt(?\DateTimeInterface $subscription_end_at): static
+    public function addPdf(Pdf $pdf): static
     {
-        $this->subscription_end_at = $subscription_end_at;
+        if (!$this->pdf->contains($pdf)) {
+            $this->pdf->add($pdf);
+            $pdf->setUserId($this);
+        }
 
         return $this;
     }
 
-    public function getCreatedAt(): ?Pdf
+    public function removePdf(Pdf $pdf): static
     {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(Pdf $created_at): static
-    {
-        $this->created_at = $created_at;
-
+        if ($this->pdf->removeElement($pdf)) {
+            // set the owning side to null (unless already changed)
+            if ($pdf->getUserId() === $this) {
+                $pdf->setUserId(null);
+            }
+        }
         return $this;
     }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updated_at;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updated_at): static
-    {
-        $this->updated_at = $updated_at;
-
-        return $this;
-    }
-
 }

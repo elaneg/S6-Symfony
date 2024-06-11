@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\History;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -13,6 +14,10 @@ class HistoryController extends AbstractController
 */
     public function index(): Response
     {
-        return $this->render('history/index.html.twig');
+        $historique = $this->getDoctrine()->getRepository(History::class)->findAll();
+
+        return $this->render('history/index.html.twig', [
+            'historique' => $historique,
+        ]);
     }
 }
