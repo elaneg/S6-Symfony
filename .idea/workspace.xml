@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94e722dc-ed23-4548-87a9-ab74eac32107" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/generatePdfController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pdf/generate_pdf.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/HistoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/history/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/subscription/change.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
