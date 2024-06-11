@@ -1,3 +1,7 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+generate_pdf:
+  path: /generate-pdf
+  controller: App\Controller\PdfController::generatePdf
+  methods: POST
