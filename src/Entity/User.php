@@ -3,9 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -26,6 +25,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $role = null;
+
+    #[ORM\ManyToOne(inversedBy: 'subscriber')]
+    private ?Subscription $subscription_id = null;
+
+    /**
+     * @var Collection<int, Pdf>
+     */
+    #[ORM\OneToMany(targetEntity: Pdf::class, mappedBy: 'owner')]
+    private Collection $pdf;
 
     public function getId(): ?int
     {
@@ -66,13 +77,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return array_unique($roles);
     }
 
-    public function setRoles(array $roles): static
+    /**
+     * @return Collection<int, Pdf>
+     */
+    public function getPdf(): Collection
     {
-        $this->roles = $roles;
+        return $this->pdf;
+    }
+
+    public function addPdf(Pdf $pdf): static
+    {
+        if (!$this->pdf->contains($pdf)) {
+            $this->pdf->add($pdf);
+            $pdf->setUserId($this);
+        }
 
         return $this;
     }
-
+    public function removePdf(Pdf $pdf): static
+    {
+        if ($this->pdf->removeElement($pdf)) {
+            // set the owning side to null (unless already changed)
+            if ($pdf->getUserId() === $this) {
+                $pdf->setUserId(null);
+            }
+        }
+        return $this;
+    }
     /**
      * @see PasswordAuthenticatedUserInterface
      */
