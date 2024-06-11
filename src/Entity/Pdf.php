@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\PdfRepository;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\ManagerRegistry;
 
 #[ORM\Entity(repositoryClass: PdfRepository::class)]
-class Pdf
+class Pdf extends ServiceEntityRepository
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -22,6 +24,11 @@ class Pdf
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $created_at = null;
+
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Pdf::class);
+    }
 
     public function getId(): ?int
     {
@@ -63,4 +70,43 @@ class Pdf
 
         return $this;
     }
+
+    public function countPdfGeneratedByUserOnDate($userId, $startOfDay, $endOfDay)
+    {
+
+        return $this->createQueryBuilder('p')
+            ->select('COUNT(p.id)')
+            ->where('p.user = :userId')
+            ->andWhere('p.createdAt BETWEEN :startOfDay AND :endOfDay')
+            ->setParameter('userId', $userId)
+            ->setParameter('startOfDay', $startOfDay)
+            ->setParameter('endOfDay', $endOfDay)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    //    /**
+//     * @return Pdf[] Returns an array of Pdf objects
+//     */
+//    public function findByExampleField($value): array
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->andWhere('p.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->orderBy('p.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
+
+//    public function findOneBySomeField($value): ?Pdf
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->andWhere('p.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
 }
