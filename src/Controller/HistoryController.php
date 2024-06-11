@@ -13,7 +13,6 @@ class HistoryController extends AbstractController
 */
     public function index(): Response
     {
-// Your logic to show history
         return $this->render('history/index.html.twig');
     }
 }

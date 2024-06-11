@@ -114,7 +114,7 @@
             "./config/preload.php",
             "./config/routes/framework.yaml",
             "./config/services.yaml",
-            "./public/index.php",
+            "./public/",
             "./src/Controller/.gitignore",
             "./src/Kernel.php"
         ]
