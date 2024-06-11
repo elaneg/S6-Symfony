@@ -3,10 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\PdfRepository;
+use DateTimeImmutable;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\ManagerRegistry;
 
 #[ORM\Entity(repositoryClass: PdfRepository::class)]
-class Pdf
+class Pdf extends ServiceEntityRepository
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,9 +22,13 @@ class Pdf
     #[ORM\ManyToOne]
     private ?User $user_id = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $created_at = null;
+    #[ORM\Column]
+    private ?\DateTimeImmutable $created_at = null;
+
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Pdf::class);
+    }
 
     public function getId(): ?int
     {
@@ -52,15 +59,54 @@ class Pdf
         return $this;
     }
 
-    public function getCreatedAt(): ?User
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(?User $created_at): static
+    public function setCreatedAt(?DateTimeImmutable $created_at): static
     {
         $this->created_at = $created_at;
 
         return $this;
     }
+
+    public function countPdfGeneratedByUserOnDate($userId, $startOfDay, $endOfDay)
+    {
+
+        return $this->createQueryBuilder('p')
+            ->select('COUNT(p.id)')
+            ->where('p.user = :userId')
+            ->andWhere('p.createdAt BETWEEN :startOfDay AND :endOfDay')
+            ->setParameter('userId', $userId)
+            ->setParameter('startOfDay', $startOfDay)
+            ->setParameter('endOfDay', $endOfDay)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    //    /**
+//     * @return Pdf[] Returns an array of Pdf objects
+//     */
+//    public function findByExampleField($value): array
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->andWhere('p.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->orderBy('p.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
+
+//    public function findOneBySomeField($value): ?Pdf
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->andWhere('p.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
 }
