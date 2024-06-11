@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\PdfRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 #[ORM\Entity(repositoryClass: PdfRepository::class)]
 class Pdf
