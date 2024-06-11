@@ -1,20 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SubscriptionController!{% endblock %}
+{% block title %}Se connecter{% endblock %}
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div style="margin: 15% auto; border: solid 2px; padding: 2%; width: 40%">
+    <form action="{{ ('login') }}" method="post">
+        <div style="margin-bottom: 15px;">
+        <label for="username">Nom d'utilisateur:</label>
+        <input type="text" id="username" name="_username" style="width: 50%; margin: auto 3%" required>
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/S6-Symfony/src/Controller/SubscriptionController.php'|file_link(0) }}">src/Controller/SubscriptionController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/S6-Symfony/templates/subscription/index.html.twig'|file_link(0) }}">templates/subscription/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div style="margin-bottom: 15px;">
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="_password" style="width: 50%; margin: auto 7%" required>
+        </div>
+
+        <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Se connecter</button>
+    </form>
+    </div>
+
 {% endblock %}
