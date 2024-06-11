@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94e722dc-ed23-4548-87a9-ab74eac32107" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/micro_service/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/CallGotenbergService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/routes/annotations.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PdfController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Pdf.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Pdf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/CallGotenbergService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/CallGotenbergService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +236,7 @@
       <workItem from="1713428589112" duration="5179000" />
       <workItem from="1716277899488" duration="361000" />
       <workItem from="1716292705679" duration="615000" />
-      <workItem from="1718092239331" duration="602000" />
+      <workItem from="1718092239331" duration="9180000" />
     </task>
     <servers />
   </component>

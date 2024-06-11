@@ -50,6 +50,11 @@ class User
         return $this->id;
     }
 
+    public function getRoles(): array
+    {
+        return ['ROLE_USER'];
+    }
+
     public function getLastname(): ?string
     {
         return $this->lastname;
