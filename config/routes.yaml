@@ -17,7 +17,7 @@ homepage:
 
 subscription_change:
   path: /subscription/change
-  controller: App\Controller\SubscriptionController::changeSubscription
+  controller: App\Controller\SubscriptionController::change
 
 history:
   path: /history
