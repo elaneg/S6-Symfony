@@ -30,7 +30,7 @@ security:
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/generate-pdf, roles: ROLE_USER }
         - { path: ^/history, roles: ROLE_USER }
-        - { path: ^//subscription/change, roles: ROLE_USER }
+        - { path: ^/subscription/change, roles: ROLE_USER }
 
 
 when@test:
