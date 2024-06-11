@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PdfRepository;
+use DateTimeImmutable;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
@@ -21,9 +22,8 @@ class Pdf extends ServiceEntityRepository
     #[ORM\ManyToOne]
     private ?User $user_id = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $created_at = null;
+    #[ORM\Column]
+    private ?\DateTimeImmutable $created_at = null;
 
     public function __construct(ManagerRegistry $registry)
     {
@@ -59,12 +59,12 @@ class Pdf extends ServiceEntityRepository
         return $this;
     }
 
-    public function getCreatedAt(): ?User
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(?User $created_at): static
+    public function setCreatedAt(?DateTimeImmutable $created_at): static
     {
         $this->created_at = $created_at;
 
