@@ -22,3 +22,7 @@ subscription_change:
 history:
   path: /history
   controller: App\Controller\HistoryController::index
+
+register:
+  path: /register
+  controller: App\Controller\RegistrationController::register
