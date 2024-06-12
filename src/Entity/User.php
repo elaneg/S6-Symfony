@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
-<<<<<<< HEAD
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -13,11 +12,12 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
 class User implements \Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface
-=======
+
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
->>>>>>> 3f64b0a5ab854a36e096bd1336cbc9c98405d1c2
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
