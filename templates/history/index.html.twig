@@ -2,5 +2,12 @@
 
 {% block body %}
     <h1>History</h1>
+    <tbody>
+    {% for pdf in generatedPdfs %}
+        <tr>
+            <td>{{ pdf.title }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
 
 {% endblock %}
