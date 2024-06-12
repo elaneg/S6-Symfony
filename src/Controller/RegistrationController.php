@@ -10,6 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+<<<<<<< HEAD
+=======
+use Symfony\Contracts\Translation\TranslatorInterface;
+>>>>>>> 3f64b0a5ab854a36e096bd1336cbc9c98405d1c2
 
 class RegistrationController extends AbstractController
 {
